@@ -1,0 +1,52 @@
+<div class="w-100">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="form-group w-25">
+            <form [formGroup]="signUpForm">
+                <label for="name" class="mt-5">Name</label>
+                <input type="name" name="name" id="name" class="form-control form-control-sm" formControlName="name">
+                <div *ngIf="signUpForm.controls['name'].invalid" class="text-danger">
+                    <small *ngIf="signUpForm.controls['name'].hasError('required')">Name is required.</small>
+                </div>
+                <label for="mobile" class="mt-3">Mobile Number</label>
+                <input type="mobile" name="mobile" id="mobile" class="form-control form-control-sm"
+                    formControlName="mobile">
+                    <div *ngIf="signUpForm.controls['mobile'].invalid" class="text-danger">
+                        <small *ngIf="signUpForm.controls['mobile'].hasError('required')">Mobile is required.</small>
+                    </div>
+                <label for="email" class="mt-3">Email</label>
+                <input type="email" name="email" id="email" class="form-control form-control-sm"
+                    formControlName="email">
+                    <div *ngIf="signUpForm.controls['email'].invalid" class="text-danger">
+                        <small *ngIf="signUpForm.controls['email'].hasError('required')">Email is required.</small>
+                    </div>
+                <label for="password" class="mt-3">Password</label>
+                <input type="password" name="password" id="password" class="form-control form-control-sm"
+                    formControlName="password">
+                    <div *ngIf="signUpForm.controls['password'].invalid" class="text-danger">
+                        <small *ngIf="signUpForm.controls['password'].hasError('required')">Password is required.</small>
+                    </div>
+                <div class="mt-3">
+                    <label class="d-block">Role</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="admin" name="role" value="admin"
+                            formControlName="role">
+                        <label class="form-check-label" for="admin">Admin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="user" name="role" value="user"
+                            formControlName="role">
+                        <label class="form-check-label" for="user">User</label>
+                    </div>
+                    <div *ngIf="signUpForm.controls['role'].invalid" class="text-danger">
+                        <small *ngIf="signUpForm.controls['role'].hasError('required')">Role is required.</small>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3" (click)="signUp()">
+                    SignUp
+                </button>
+                <p class="info">Alredy have an account? <span class="signup" (click)="login()">Login</span></p>
+
+            </form>
+        </div>
+    </div>
+</div>
